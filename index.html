@@ -5647,7 +5647,8 @@ function makeLayout(p) {
 
 function renderPlots(sample) {
   const cfg = {responsive:true, displayModeBar:true, displaylogo:false,
-               modeBarButtonsToRemove:['lasso2d','select2d']};
+               modeBarButtonsToRemove:['lasso2d','select2d'],
+               toImageButtonOptions:{format:'png', scale:3.125}};
   PLOTS.forEach(p => {
     const traces = DATABASE.map(g => {
       const {x, y, names} = getXY(g, p.xE, p.yE);
