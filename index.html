@@ -5631,21 +5631,21 @@ function makeLayout(p) {
     margin: {l:58, r:14, t:8, b:52},
     showlegend: false,
     hovermode: 'closest',
-    plot_bgcolor: '#f8f9fa',
-    paper_bgcolor: '#fff',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    paper_bgcolor: 'rgba(0,0,0,0)',
     xaxis: {
       type:'log',
       range:[Math.log10(p.xL[0]), Math.log10(p.xL[1])],
       title:{text:ELEM_LABEL[p.xE], font:{size:12}},
       tickfont:{size:10}, showgrid:false,
-      dtick:1, minor:{ticks:'inside', showgrid:false}
+      dtick:1, minor:{ticks:'inside', ticklen:3, showgrid:false, dtick:'D1'}
     },
     yaxis: {
       type:'log',
       range:[Math.log10(p.yL[0]), Math.log10(p.yL[1])],
       title:{text:ELEM_LABEL[p.yE], font:{size:12}},
       tickfont:{size:10}, showgrid:false,
-      dtick:1, minor:{ticks:'inside', showgrid:false}
+      dtick:1, minor:{ticks:'inside', ticklen:3, showgrid:false, dtick:'D1'}
     }
   };
 }
