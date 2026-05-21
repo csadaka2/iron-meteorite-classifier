@@ -42,8 +42,13 @@
     .legend-sq  { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; border: 1px solid #555; }
     #plots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 18px; }
     .plot-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.1); overflow: hidden; }
-    .plot-title { font-size: 0.82rem; font-weight: 600; color: #666; padding: 10px 16px 2px; }
+    .plot-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px 2px 16px; }
+    .plot-title { font-size: 0.82rem; font-weight: 600; color: #666; }
     .plot-div   { height: 370px; }
+    .dl-btn { background: none; border: 1px solid #ccc; border-radius: 5px; padding: 3px 9px; font-size: 0.75rem; color: #555; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .dl-btn:hover { background: #f0f4f8; border-color: #4a90e2; color: #4a90e2; }
+    #dl-all-btn { display: block; margin: 0 0 18px auto; padding: 8px 20px; background: #2c3e50; color: #fff; border: none; border-radius: 7px; font-size: 0.85rem; font-family: inherit; cursor: pointer; }
+    #dl-all-btn:hover { background: #1a252f; }
     footer { text-align: center; padding: 20px; color: #999; font-size: 0.78rem; }
     @media (max-width: 580px) { #plots-grid { grid-template-columns: 1fr; } header { padding: 14px 16px; } }
   </style>
@@ -92,6 +97,7 @@
     <div id="legend-items"></div>
   </div>
 
+  <button id="dl-all-btn" onclick="downloadAll()">&#8659; Download all plots (SVG)</button>
   <div id="plots-grid"></div>
 </main>
 <footer>Iron meteorite reference database &mdash; elemental compositions from the literature.</footer>
@@ -5608,8 +5614,20 @@ function buildGrid() {
   PLOTS.forEach(p => {
     const card = document.createElement('div');
     card.className = 'plot-card';
-    card.innerHTML = `<div class="plot-title">${ELEM_LABEL[p.xE]} vs ${ELEM_LABEL[p.yE]}</div>
-                      <div class="plot-div" id="plt-${p.id}"></div>`;
+    const fname = `${p.xE}_vs_${p.yE}`;
+    card.innerHTML = `
+      <div class="plot-header">
+        <span class="plot-title">${ELEM_LABEL[p.xE]} vs ${ELEM_LABEL[p.yE]}</span>
+        <div style="display:flex;gap:6px">
+          <button class="dl-btn" onclick="downloadPlot('plt-${p.id}','${fname}','svg')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>SVG
+          </button>
+          <button class="dl-btn" onclick="downloadPlot('plt-${p.id}','${fname}','png')">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>PNG
+          </button>
+        </div>
+      </div>
+      <div class="plot-div" id="plt-${p.id}"></div>`;
     g.appendChild(card);
   });
 }
@@ -5648,7 +5666,7 @@ function makeLayout(p) {
 function renderPlots(sample) {
   const cfg = {responsive:true, displayModeBar:true, displaylogo:false,
                modeBarButtonsToRemove:['lasso2d','select2d'],
-               toImageButtonOptions:{format:'png', scale:3.125}};
+               toImageButtonOptions:{format:'svg', filename:'iron_meteorite_plot'}};
   PLOTS.forEach(p => {
     const traces = DATABASE.map(g => {
       const {x, y, names} = getXY(g, p.xE, p.yE);
@@ -5766,6 +5784,18 @@ dz.addEventListener('dragover', e=>{ e.preventDefault(); dz.classList.add('drago
 dz.addEventListener('dragleave', ()=>dz.classList.remove('dragover'));
 dz.addEventListener('drop', e=>{ e.preventDefault(); dz.classList.remove('dragover'); handleFile(e.dataTransfer.files[0]); });
 document.getElementById('file-input').addEventListener('change', e=>handleFile(e.target.files[0]));
+
+function downloadPlot(divId, filename, format) {
+  const opts = {filename, format};
+  if (format === 'png') { opts.width = 1600; opts.height = 1200; opts.scale = 2; }
+  Plotly.downloadImage(divId, opts);
+}
+
+function downloadAll() {
+  PLOTS.forEach((p, i) => {
+    setTimeout(() => downloadPlot('plt-' + p.id, `${p.xE}_vs_${p.yE}`, 'svg'), i * 400);
+  });
+}
 
 buildLegend();
 buildGrid();
