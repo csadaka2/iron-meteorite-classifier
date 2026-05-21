@@ -5637,15 +5637,15 @@ function makeLayout(p) {
       type:'log',
       range:[Math.log10(p.xL[0]), Math.log10(p.xL[1])],
       title:{text:ELEM_LABEL[p.xE], font:{size:12}},
-      tickfont:{size:10}, gridcolor:'#e0e0e0',
-      dtick:1, minor:{ticks:'outside', showgrid:false}
+      tickfont:{size:10}, showgrid:false,
+      dtick:1, minor:{ticks:'', showgrid:false}
     },
     yaxis: {
       type:'log',
       range:[Math.log10(p.yL[0]), Math.log10(p.yL[1])],
       title:{text:ELEM_LABEL[p.yE], font:{size:12}},
-      tickfont:{size:10}, gridcolor:'#e0e0e0',
-      dtick:1, minor:{ticks:'outside', showgrid:false}
+      tickfont:{size:10}, showgrid:false,
+      dtick:1, minor:{ticks:'', showgrid:false}
     }
   };
 }
