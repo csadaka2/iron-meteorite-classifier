@@ -4,11 +4,15 @@ A browser-based tool to classify iron meteorites by comparing elemental composit
 
 **Live app → https://csadaka2.github.io/iron-meteorite-classifier/**
 
+Based on code by Clara Maurel.
+
 ---
 
 ## What it does
 
 Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of trace elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles.
+
+Plots are interactive — hover over any point to see the meteorite name and exact values. Use the Plotly toolbar (top-right of each plot) to zoom, pan, or download the figure as an SVG.
 
 ### Reference groups
 
