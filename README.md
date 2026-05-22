@@ -10,9 +10,9 @@ Based on code by Clara Maurel.
 
 ## What it does
 
-Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of trace elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles.
+Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles.
 
-Plots are interactive — hover over any point to see the meteorite name and exact values. Use the Plotly toolbar (top-right of each plot) to zoom, pan, or download the figure as an SVG.
+Plots are interactive : hover over any point to see the meteorite name and exact values. Use the Plotly toolbar (top-right of each plot) to zoom, pan, or download the figure as a PNG.
 
 ### Reference groups
 
@@ -79,6 +79,6 @@ Error bars are only shown when the uncertainty is present and non-zero.
 
 ## Technical notes
 
-- Runs entirely in the browser — no server, no installation
+- Runs entirely in the browser, no coding skills required
 - Reference database embedded in the HTML at build time
 - Uses [Plotly.js](https://plotly.com/javascript/) for interactive charts and [SheetJS](https://sheetjs.com/) for Excel parsing
