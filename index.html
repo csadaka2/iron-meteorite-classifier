@@ -95,7 +95,7 @@
 
   <div id="plots-grid"></div>
 </main>
-<footer>Iron meteorite reference database &mdash; elemental compositions from the literature. &nbsp;|&nbsp; Based on code by Clara Maurel.</footer>
+<footer>Iron meteorite reference database; elemental compositions from the literature. &nbsp;|&nbsp; Based on code by Clara Maurel.</footer>
 
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
@@ -5627,25 +5627,35 @@ function getXY(group, xE, yE) {
 }
 
 function makeLayout(p) {
+  const axisStyle = {
+    linecolor: '#555',
+    linewidth: 1,
+    showline: true,
+    mirror: true,        // draws axis line on all 4 sides (box style)
+    tickcolor: '#555',
+    tickfont: { size: 10, color: '#333' },
+    showgrid: false,
+    dtick: 1,
+    minor: { ticks: 'inside', ticklen: 3, showgrid: false, dtick: 'D1' }
+  };
+
   return {
-    margin: {l:58, r:14, t:8, b:52},
+    margin: { l: 58, r: 14, t: 8, b: 52 },
     showlegend: false,
     hovermode: 'closest',
     plot_bgcolor: 'rgba(0,0,0,0)',
     paper_bgcolor: 'rgba(0,0,0,0)',
     xaxis: {
-      type:'log',
-      range:[Math.log10(p.xL[0]), Math.log10(p.xL[1])],
-      title:{text:ELEM_LABEL[p.xE], font:{size:12}},
-      tickfont:{size:10}, showgrid:false,
-      dtick:1, minor:{ticks:'inside', ticklen:3, showgrid:false, dtick:'D1'}
+      ...axisStyle,
+      type: 'log',
+      range: [Math.log10(p.xL[0]), Math.log10(p.xL[1])],
+      title: { text: ELEM_LABEL[p.xE], font: { size: 12, color: '#333' } },
     },
     yaxis: {
-      type:'log',
-      range:[Math.log10(p.yL[0]), Math.log10(p.yL[1])],
-      title:{text:ELEM_LABEL[p.yE], font:{size:12}},
-      tickfont:{size:10}, showgrid:false,
-      dtick:1, minor:{ticks:'inside', ticklen:3, showgrid:false, dtick:'D1'}
+      ...axisStyle,
+      type: 'log',
+      range: [Math.log10(p.yL[0]), Math.log10(p.yL[1])],
+      title: { text: ELEM_LABEL[p.yE], font: { size: 12, color: '#333' } },
     }
   };
 }
