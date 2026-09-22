@@ -5627,7 +5627,7 @@ function getXY(group, xE, yE) {
 }
 
 function makeLayout(p) {
-  const axisStyle = {
+  const baseAxisStyle = {
     linecolor: '#555',
     linewidth: 1,
     showline: true,
@@ -5635,9 +5635,30 @@ function makeLayout(p) {
     tickcolor: '#555',
     tickfont: { size: 10, color: '#333' },
     showgrid: false,
-    dtick: 1,
-    minor: { ticks: 'inside', ticklen: 3, showgrid: false, dtick: 'D1' }
   };
+
+  // Co (wt%) always sits within roughly 0.2–0.9, i.e. well inside a single log
+  // decade, so the default "one tick per power of 10" log-axis behaviour
+  // never produces a labeled tick and the axis looks blank. For Co we use
+  // linear-spaced ticks (Plotly's "L<step>" log dtick) with a decimal
+  // tickformat so labels like 0.3, 0.4, 0.5 ... actually show up.
+  function axisFor(elem, range) {
+    const style = {
+      ...baseAxisStyle,
+      type: 'log',
+      range: [Math.log10(range[0]), Math.log10(range[1])],
+      title: { text: ELEM_LABEL[elem], font: { size: 12, color: '#333' } },
+    };
+    if (elem === 'Co') {
+      style.dtick = 'L0.1';
+      style.tickformat = '.1f';
+      style.minor = { ticks: 'inside', ticklen: 3, showgrid: false, dtick: 'L0.02' };
+    } else {
+      style.dtick = 1;
+      style.minor = { ticks: 'inside', ticklen: 3, showgrid: false, dtick: 'D1' };
+    }
+    return style;
+  }
 
   return {
     margin: { l: 58, r: 14, t: 8, b: 52 },
@@ -5645,18 +5666,8 @@ function makeLayout(p) {
     hovermode: 'closest',
     plot_bgcolor: 'rgba(0,0,0,0)',
     paper_bgcolor: 'rgba(0,0,0,0)',
-    xaxis: {
-      ...axisStyle,
-      type: 'log',
-      range: [Math.log10(p.xL[0]), Math.log10(p.xL[1])],
-      title: { text: ELEM_LABEL[p.xE], font: { size: 12, color: '#333' } },
-    },
-    yaxis: {
-      ...axisStyle,
-      type: 'log',
-      range: [Math.log10(p.yL[0]), Math.log10(p.yL[1])],
-      title: { text: ELEM_LABEL[p.yE], font: { size: 12, color: '#333' } },
-    }
+    xaxis: axisFor(p.xE, p.xL),
+    yaxis: axisFor(p.yE, p.yL)
   };
 }
 
