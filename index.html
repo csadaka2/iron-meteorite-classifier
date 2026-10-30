@@ -38,7 +38,7 @@
     .tag-na { background: #eee; color: #999; }
     #legend-items { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; }
     .legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.82rem; }
-    .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .legend-sym { width: 10px; height: 10px; flex-shrink: 0; }
     .legend-sq  { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; border: 1px solid #555; }
     #plots-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(520px, 1fr)); gap: 18px; }
     .plot-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,.1); overflow: hidden; }
@@ -52,7 +52,7 @@
 <body>
 <header>
   <h1>Iron Meteorite Classification</h1>
-  <p>Upload your sample's XRF data (.xlsx) to compare it against the reference database of 649 iron meteorites across 13 groups.</p>
+  <p>Upload your sample's XRF data (.xlsx) to compare it against the reference database of 704 iron meteorites across 13 groups, with the IAB complex split into its main group and six subgroups.</p>
 </header>
 <main>
 
@@ -5552,6 +5552,572 @@ const DATABASE = [
       1.665,
       1.707
     ]
+  },
+  {
+    "group": "IAB-sLL",
+    "color": "lightpink",
+    "symbol": "x",
+    "name": [
+      "Annaheim",
+      "Karee Kloof",
+      "Pine River",
+      "Goose Lake",
+      "Ogallala",
+      "Wooster",
+      "Surprise Springs",
+      "Deport",
+      "Bischt\u00fcbe",
+      "Balfour Downs",
+      "Grosvenor Mt GRO95511",
+      "Mazapil",
+      "Toluca",
+      "Comanche (iron)",
+      "Reckling Peak A80226",
+      "Elephant Moraine EET83333",
+      "Shrewsbury",
+      "Bahjoi",
+      "Niagara",
+      "Nagy-Vazsony"
+    ],
+    "Co": [
+      0.474,
+      0.471,
+      0.492,
+      0.486,
+      0.484,
+      0.482,
+      0.485,
+      0.473,
+      0.492,
+      0.487,
+      0.486,
+      0.499,
+      0.49,
+      0.499,
+      0.488,
+      0.488,
+      0.488,
+      0.483,
+      0.501,
+      0.499
+    ],
+    "Ni": [
+      7.79,
+      8.2,
+      8.04,
+      8.24,
+      7.92,
+      7.81,
+      8.0,
+      8.05,
+      7.78,
+      8.38,
+      8.18,
+      8.88,
+      8.02,
+      8.24,
+      8.26,
+      8.06,
+      8.53,
+      7.94,
+      7.93,
+      8.09
+    ],
+    "Ga": [
+      79.6,
+      80.0,
+      74.1,
+      69.4,
+      68.1,
+      66.2,
+      69.4,
+      64.8,
+      67.9,
+      58.6,
+      72.8,
+      60.2,
+      68.9,
+      76.3,
+      67.6,
+      74.8,
+      62.6,
+      69.7,
+      72.0,
+      72.2
+    ],
+    "Ge": [
+      301,
+      355,
+      234,
+      305,
+      266,
+      258,
+      264,
+      255,
+      238,
+      194,
+      248,
+      221,
+      245,
+      270,
+      255,
+      226,
+      196,
+      273,
+      266,
+      237
+    ],
+    "As": [
+      13.4,
+      15.0,
+      15.7,
+      16.4,
+      15.9,
+      15.2,
+      16.0,
+      17.2,
+      16.9,
+      16.6,
+      16.3,
+      18.0,
+      16.5,
+      17.0,
+      17.0,
+      15.7,
+      17.3,
+      17.1,
+      16.7,
+      18.2
+    ],
+    "Ir": [
+      3.52,
+      1.3,
+      3.06,
+      2.15,
+      2.43,
+      2.58,
+      2.37,
+      2.37,
+      2.3,
+      2.17,
+      1.99,
+      5.59,
+      2.47,
+      2.82,
+      2.06,
+      2.88,
+      2.77,
+      2.54,
+      2.71,
+      2.43
+    ],
+    "Au": [
+      1.555,
+      1.58,
+      1.635,
+      1.636,
+      1.636,
+      1.65,
+      1.654,
+      1.685,
+      1.687,
+      1.695,
+      1.695,
+      1.695,
+      1.718,
+      1.72,
+      1.74,
+      1.75,
+      1.75,
+      1.754,
+      1.757,
+      1.776
+    ]
+  },
+  {
+    "group": "IAB-sLM",
+    "color": "lightpink",
+    "symbol": "square",
+    "name": [
+      "Persimmon Creek",
+      "Maltah\u00f6he",
+      "Anoka",
+      "Mungindi",
+      "Edmonton (KY)",
+      "Carlton",
+      "Lamesa",
+      "Egvekinot"
+    ],
+    "Co": [
+      0.548,
+      0.526,
+      0.556,
+      0.55,
+      0.548,
+      0.567,
+      0.56,
+      0.562
+    ],
+    "Ni": [
+      13.79,
+      11.4,
+      11.8,
+      11.86,
+      12.9,
+      13.23,
+      13.28,
+      14.3
+    ],
+    "Ga": [
+      33.2,
+      24.0,
+      17.8,
+      18.8,
+      24.2,
+      11.9,
+      13.1,
+      12.6
+    ],
+    "Ge": [
+      78.3,
+      38.5,
+      15.7,
+      22.2,
+      34.3,
+      8.59,
+      11.9,
+      10.2
+    ],
+    "As": [
+      15.8,
+      19.2,
+      21.4,
+      22.4,
+      21.3,
+      23.5,
+      24.2,
+      25.1
+    ],
+    "Ir": [
+      0.852,
+      0.17,
+      0.172,
+      0.583,
+      0.457,
+      0.082,
+      0.045,
+      0.098
+    ],
+    "Au": [
+      1.535,
+      1.6,
+      1.617,
+      1.665,
+      1.705,
+      1.737,
+      1.754,
+      1.83
+    ]
+  },
+  {
+    "group": "IAB-sLH",
+    "color": "lightpink",
+    "symbol": "diamond",
+    "name": [
+      "F\u00f6llinge",
+      "Dayton",
+      "Tazewell",
+      "Lewis Cliff LEW 86540",
+      "Freda",
+      "Wedderburn"
+    ],
+    "Co": [
+      0.596,
+      0.592,
+      0.589,
+      0.599,
+      0.629,
+      0.612
+    ],
+    "Ni": [
+      17.79,
+      17.1,
+      17.06,
+      18.29,
+      23.21,
+      23.4
+    ],
+    "Ga": [
+      3.88,
+      4.85,
+      4.75,
+      4.3,
+      2.12,
+      1.45
+    ],
+    "Ge": [
+      3.15,
+      3.41,
+      3.78,
+      2.8,
+      2.24,
+      1.47
+    ],
+    "As": [
+      26.4,
+      25.2,
+      26.6,
+      28.8,
+      30.1,
+      32.7
+    ],
+    "Ir": [
+      0.11,
+      0.03,
+      0.1,
+      0.04,
+      0.015,
+      0.058
+    ],
+    "Au": [
+      1.7,
+      1.736,
+      1.763,
+      1.813,
+      1.895,
+      1.997
+    ]
+  },
+  {
+    "group": "IAB-sHL",
+    "color": "lightpink",
+    "symbol": "triangle-up",
+    "name": [
+      "Chebankol",
+      "Lonaconing",
+      "Sombrerete",
+      "Hassi-Jekna",
+      "Algoma",
+      "Magnesia",
+      "Qarat al Hanash",
+      "Victoria West",
+      "Muzaffarpur"
+    ],
+    "Co": [
+      0.516,
+      0.535,
+      0.507,
+      0.553,
+      0.548,
+      0.532,
+      0.551,
+      0.576,
+      0.606
+    ],
+    "Ni": [
+      9.17,
+      9.69,
+      9.84,
+      10.72,
+      10.51,
+      10.7,
+      12.75,
+      12.43,
+      13.99
+    ],
+    "Ga": [
+      22.8,
+      24.8,
+      19.9,
+      23.6,
+      20.1,
+      14.2,
+      16.7,
+      16.6,
+      15.4
+    ],
+    "Ge": [
+      52.5,
+      62.1,
+      11.3,
+      69.6,
+      38.3,
+      22.4,
+      29.7,
+      31.4,
+      28.6
+    ],
+    "As": [
+      18.4,
+      22.6,
+      21.1,
+      26.6,
+      25.9,
+      23.2,
+      26.7,
+      29.8,
+      32.2
+    ],
+    "Ir": [
+      0.09,
+      0.746,
+      0.08,
+      0.231,
+      0.354,
+      0.139,
+      0.856,
+      0.032,
+      0.55
+    ],
+    "Au": [
+      2.0,
+      2.22,
+      2.26,
+      2.4,
+      2.45,
+      2.74,
+      2.78,
+      2.93,
+      3.36
+    ]
+  },
+  {
+    "group": "IAB-sHH",
+    "color": "lightpink",
+    "symbol": "triangle-down",
+    "name": [
+      "Garden Head",
+      "Gay Gulch",
+      "Mount Magnet",
+      "Allan Hills ALHA80104",
+      "Kofa",
+      "Linville"
+    ],
+    "Co": [
+      0.618,
+      0.677,
+      0.605,
+      0.68,
+      0.694,
+      0.613
+    ],
+    "Ni": [
+      17.16,
+      15.07,
+      14.57,
+      15.86,
+      18.39,
+      16.51
+    ],
+    "Ga": [
+      10.8,
+      6.51,
+      7.67,
+      5.87,
+      4.79,
+      7.84
+    ],
+    "Ge": [
+      16.6,
+      10.7,
+      5.26,
+      10.3,
+      8.61,
+      16.1
+    ],
+    "As": [
+      22.9,
+      22.9,
+      24.7,
+      26.3,
+      28.4,
+      30.0
+    ],
+    "Ir": [
+      0.115,
+      0.099,
+      0.015,
+      0.083,
+      0.1,
+      0.01
+    ],
+    "Au": [
+      2.44,
+      2.55,
+      2.64,
+      2.63,
+      2.85,
+      3.04
+    ]
+  },
+  {
+    "group": "IAB-Udei Station",
+    "color": "lightpink",
+    "symbol": "cross",
+    "name": [
+      "Thiel Mountains TIL91725",
+      "Udei Station",
+      "Caddo",
+      "Harlowtown",
+      "Four Corners",
+      "Zagora"
+    ],
+    "Co": [
+      0.47,
+      0.481,
+      0.49,
+      0.491,
+      0.503,
+      0.483
+    ],
+    "Ni": [
+      8.04,
+      9.47,
+      9.42,
+      8.75,
+      9.03,
+      9.36
+    ],
+    "Ga": [
+      73.6,
+      69.4,
+      68.4,
+      60.6,
+      49.4,
+      70.1
+    ],
+    "Ge": [
+      234,
+      204,
+      273,
+      222,
+      179,
+      226
+    ],
+    "As": [
+      12.7,
+      15.2,
+      14.5,
+      16.5,
+      16.3,
+      15.6
+    ],
+    "Ir": [
+      3.67,
+      0.672,
+      2.53,
+      2.65,
+      2.35,
+      2.83
+    ],
+    "Au": [
+      1.529,
+      1.602,
+      1.607,
+      1.608,
+      1.636,
+      1.706
+    ]
   }
 ]
 ;
@@ -5564,11 +6130,11 @@ const ELEM_LABEL = {
 const PLOTS = [
   {id:'ni-ge', xE:'Ni', yE:'Ge', xL:[3,30],    yL:[0.01,1000] },
   {id:'ni-ir', xE:'Ni', yE:'Ir', xL:[3,30],    yL:[0.001,100] },
-  {id:'as-ge', xE:'As', yE:'Ge', xL:[0.3,30],  yL:[0.01,1000] },
-  {id:'as-ga', xE:'As', yE:'Ga', xL:[0.3,30],  yL:[0.1,200]   },
-  {id:'as-co', xE:'As', yE:'Co', xL:[0.3,30],  yL:[0.2,0.9]   },
-  {id:'as-ni', xE:'As', yE:'Ni', xL:[0.3,30],  yL:[3,30]      },
-  {id:'as-ir', xE:'As', yE:'Ir', xL:[0.3,30],  yL:[0.001,100] },
+  {id:'as-ge', xE:'As', yE:'Ge', xL:[0.3,40],  yL:[0.01,1000] },
+  {id:'as-ga', xE:'As', yE:'Ga', xL:[0.3,40],  yL:[0.1,200]   },
+  {id:'as-co', xE:'As', yE:'Co', xL:[0.3,40],  yL:[0.2,0.9]   },
+  {id:'as-ni', xE:'As', yE:'Ni', xL:[0.3,40],  yL:[3,30]      },
+  {id:'as-ir', xE:'As', yE:'Ir', xL:[0.3,40],  yL:[0.001,100] },
   {id:'au-ge', xE:'Au', yE:'Ge', xL:[0.03,4],  yL:[0.01,1000] },
   {id:'au-ga', xE:'Au', yE:'Ga', xL:[0.03,4],  yL:[0.1,200]   },
   {id:'au-ni', xE:'Au', yE:'Ni', xL:[0.03,4],  yL:[3,30]      },
@@ -5587,12 +6153,23 @@ const PLOT_ELEMS = ['Ni','Co','Ga','Ge','As','Ir','Au'];
 let currentSample = null;
 
 /* ── legend ── */
+// 10×10 swatches matching the Plotly marker symbols used in DATABASE (circle when unset)
+const SYMBOL_SVG = {
+  'circle':        '<circle cx="5" cy="5" r="5"/>',
+  'square':        '<rect x="0.5" y="0.5" width="9" height="9"/>',
+  'diamond':       '<path d="M5 0L10 5L5 10L0 5Z"/>',
+  'triangle-up':   '<path d="M5 0.5L10 9.5H0Z"/>',
+  'triangle-down': '<path d="M0 0.5H10L5 9.5Z"/>',
+  'cross':         '<path d="M3.6 0H6.4V3.6H10V6.4H6.4V10H3.6V6.4H0V3.6H3.6Z"/>',
+  'x':             '<path d="M1.3 1.3L8.7 8.7M8.7 1.3L1.3 8.7" stroke="currentColor" stroke-width="2.6"/>',
+};
+
 function buildLegend() {
   const c = document.getElementById('legend-items');
   DATABASE.forEach(g => {
     const d = document.createElement('div');
     d.className = 'legend-item';
-    d.innerHTML = `<span class="legend-dot" style="background:${g.color}"></span><span>${g.group}</span>`;
+    d.innerHTML = `<svg class="legend-sym" viewBox="0 0 10 10" fill="currentColor" style="color:${g.color}">${SYMBOL_SVG[g.symbol || 'circle']}</svg><span>${g.group}</span>`;
     c.appendChild(d);
   });
   const sd = document.createElement('div');
@@ -5660,16 +6237,53 @@ function makeLayout(p) {
   };
 }
 
+/* ── PNG export (on-screen plots hide the legend; the export adds it on the right) ── */
+const EXPORT_LEGEND_FONT = { size: 11, color: '#333' };
+
+function downloadWithLegend(gd) {
+  const fl = gd._fullLayout;
+  const fig = JSON.parse(JSON.stringify({ data: gd.data, layout: gd.layout }));
+
+  // too many entries for one column at plot height: circle groups go in the first column,
+  // IAB subgroups (non-circle symbols) and the sample in a second
+  fig.data.forEach(t => { if (t.marker.symbol !== 'circle') t.legend = 'legend2'; });
+
+  // widen the image by the legend columns' width so the plot area keeps its on-screen size
+  const ctx = document.createElement('canvas').getContext('2d');
+  ctx.font = EXPORT_LEGEND_FONT.size + 'px "Open Sans", verdana, arial, sans-serif';
+  const colW = traces => Math.ceil(Math.max(...traces.map(t => ctx.measureText(t.name).width))) + 60;
+  const col1W = colW(fig.data.filter(t => !t.legend));
+  const col2W = colW(fig.data.filter(t => t.legend));
+  const plotW = fl.width - fig.layout.margin.l - fig.layout.margin.r;
+
+  const legendStyle = { xanchor: 'left', y: 1, yanchor: 'top',
+                        font: EXPORT_LEGEND_FONT, itemsizing: 'constant' };
+  fig.layout.showlegend = true;
+  fig.layout.legend  = { ...legendStyle, x: 1.02 };
+  fig.layout.legend2 = { ...legendStyle, x: 1.02 + col1W / plotW };
+  const legendW = col1W + col2W;
+  fig.layout.margin.r += legendW;
+
+  Plotly.downloadImage(fig, {
+    format: 'png', scale: 3.125,
+    width: fl.width + legendW, height: fl.height,
+    filename: 'iron_meteorite_' + gd.id.replace('plt-', '')
+  }).catch(err => showError('Could not download plot: ' + err.message));
+}
+
 function renderPlots(sample) {
   const cfg = {responsive:true, displayModeBar:true, displaylogo:false,
-               modeBarButtonsToRemove:['lasso2d','select2d'],
-               toImageButtonOptions:{format:'png', scale:3.125, filename:'iron_meteorite_plot'}};
+               modeBarButtons:[
+                 [{name:'Download plot as PNG', icon:Plotly.Icons.camera, click:downloadWithLegend}],
+                 ['zoom2d','pan2d','zoomIn2d','zoomOut2d','autoScale2d','resetScale2d']
+               ]};
   PLOTS.forEach(p => {
     const traces = DATABASE.map(g => {
       const {x, y, names} = getXY(g, p.xE, p.yE);
       return {
         x, y, type:'scatter', mode:'markers',
-        marker:{color:g.color, size:5, opacity:0.85},
+        // non-circle symbols (IAB subgroups) need a larger size to stay recognizable
+        marker:{color:g.color, symbol:g.symbol || 'circle', size:g.symbol ? 7 : 5, opacity:0.85},
         name:g.group, text:names,
         hovertemplate:'<b>%{text}</b><br>'
           + ELEM_LABEL[p.xE] + ': %{x:.3g}<br>'
