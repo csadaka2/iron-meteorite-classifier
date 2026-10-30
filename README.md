@@ -10,7 +10,7 @@ Based on code by Clara Maurel.
 
 ## What it does
 
-Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles, and the IAB subgroups share the IAB colour with a different symbol each.
+Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles, and the IAB subgroups are shown as open black symbols, a different one for each subgroup.
 
 Plots are interactive : hover over any point to see the meteorite name and exact values. Use the Plotly toolbar (top-right of each plot) to zoom, pan, or download the figure as a PNG.
 
@@ -23,10 +23,10 @@ IAB-complex subgroups from Wasson & Kallemeyn (2002, *Geochim. Cosmochim. Acta* 
 | Subgroup | Meaning | Symbol |
 |----------|---------|--------|
 | IAB-sLL | low Au, low Ni | × |
-| IAB-sLM | low Au, medium Ni (former IIIC) | ■ |
-| IAB-sLH | low Au, high Ni (former IIID) | ◆ |
-| IAB-sHL | high Au, low Ni | ▲ |
-| IAB-sHH | high Au, high Ni | ▼ |
+| IAB-sLM | low Au, medium Ni (former IIIC) | □ |
+| IAB-sLH | low Au, high Ni (former IIID) | ◇ |
+| IAB-sHL | high Au, low Ni | △ |
+| IAB-sHH | high Au, high Ni | ▽ |
 | IAB-Udei Station | Udei Station grouplet, closely related to sLL | + |
 
 ### Plots generated
