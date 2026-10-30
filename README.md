@@ -1,6 +1,6 @@
 # Iron Meteorite Classifier
 
-A browser-based tool to classify iron meteorites by comparing elemental compositions against a reference database of 649 meteorites across 13 groups.
+A browser-based tool to classify iron meteorites by comparing elemental compositions against a reference database of 704 meteorites across 13 groups, with the IAB complex split into its main group and six subgroups.
 
 **Live app → https://csadaka2.github.io/iron-meteorite-classifier/**
 
@@ -10,13 +10,24 @@ Based on code by Clara Maurel.
 
 ## What it does
 
-Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles.
+Upload your sample's XRF data as an `.xlsx` file and the app overlays it on 11 log–log scatter plots, each showing a different pair of elements. Your sample appears as a gold square with error bars; the reference groups are shown as coloured circles, and the IAB subgroups share the IAB colour with a different symbol each.
 
 Plots are interactive : hover over any point to see the meteorite name and exact values. Use the Plotly toolbar (top-right of each plot) to zoom, pan, or download the figure as a PNG.
 
 ### Reference groups
 
 IC, IIAB, IIC, IID, IIE, IIF, IIG, IIIAB, IIIE, IIIF, IVA, IVB, IAB-MG
+
+IAB-complex subgroups from Wasson & Kallemeyn (2002, *Geochim. Cosmochim. Acta* 66, 2445–2473), Table 2:
+
+| Subgroup | Meaning | Symbol |
+|----------|---------|--------|
+| IAB-sLL | low Au, low Ni | × |
+| IAB-sLM | low Au, medium Ni (former IIIC) | ■ |
+| IAB-sLH | low Au, high Ni (former IIID) | ◆ |
+| IAB-sHL | high Au, low Ni | ▲ |
+| IAB-sHH | high Au, high Ni | ▼ |
+| IAB-Udei Station | Udei Station grouplet, closely related to sLL | + |
 
 ### Plots generated
 
